@@ -1,0 +1,105 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#fff"><link rel="manifest" href="manifest.webmanifest"><title>Colour My Kin</title>
+<style>
+:root{--ink:#25272b;--muted:#747982;--line:#e8e7e3;--paper:#fff;--bg:#f8f7f3;--accent:#4a9bb4}*{box-sizing:border-box}body{margin:0;background:var(--bg);font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif;color:var(--ink)}button,input{font:inherit}.app{max-width:520px;margin:auto;min-height:100vh;background:var(--bg)}header{position:sticky;top:0;z-index:5;background:#fffffff2;backdrop-filter:blur(12px);border-bottom:1px solid var(--line);padding:12px 18px;display:flex;align-items:center;gap:12px}.brandmark{width:42px;height:42px;border-radius:12px;object-fit:cover}.brand{font-family:Georgia,serif;font-weight:700;font-size:19px;letter-spacing:.4px}.sub{font-size:11px;color:var(--muted)}main{padding:18px 16px 90px}.hero{background:var(--paper);border:1px solid var(--line);border-radius:24px;padding:18px;box-shadow:0 8px 25px #00000008}.hero img{width:100%;max-height:180px;object-fit:contain;border-radius:15px}.hero h1{font-family:Georgia,serif;font-size:27px;margin:14px 0 5px}.hero p{color:var(--muted);margin:0 0 15px}.actions{display:grid;grid-template-columns:1fr 1fr;gap:11px}.action{border:0;border-radius:17px;padding:18px;text-align:left;min-height:120px;background:#fff;border:1px solid var(--line);cursor:pointer}.action strong{display:block;font-size:16px;margin-top:10px}.action span{display:block;color:var(--muted);font-size:12px;margin-top:5px;line-height:1.35}.icon{font-size:28px}.section-title{display:flex;justify-content:space-between;align-items:center;margin:22px 2px 10px}.section-title h2{font-size:17px;margin:0}.link{border:0;background:none;color:#4a7583;font-weight:700;font-size:13px}.chips{display:flex;gap:7px;overflow:auto;padding-bottom:5px}.chip{white-space:nowrap;border:1px solid var(--line);background:#fff;border-radius:99px;padding:9px 13px;font-size:12px}.library{display:grid;grid-template-columns:repeat(2,1fr);gap:11px}.page{background:#fff;border:1px solid var(--line);border-radius:16px;padding:8px;cursor:pointer}.page canvas{width:100%;display:block;border-radius:11px;background:#fff}.page div{font-size:12px;font-weight:700;padding:8px 3px 3px}.empty{padding:28px 12px;text-align:center;color:var(--muted);background:#fff;border:1px dashed #d9d7d1;border-radius:16px}.screen{display:none}.screen.active{display:block}.toprow{display:flex;align-items:center;gap:10px;margin-bottom:14px}.back{border:0;background:#fff;border:1px solid var(--line);border-radius:12px;padding:9px 12px}.toprow h2{font-size:19px;margin:0}.upload{background:#fff;border:1px dashed #bbb;border-radius:18px;padding:22px;text-align:center}.upload input{display:none}.upload .big{font-size:38px}.primary{background:#25272b;color:#fff;border:0;border-radius:13px;padding:13px 16px;font-weight:800;cursor:pointer}.secondary{background:#fff;color:var(--ink);border:1px solid var(--line);border-radius:13px;padding:12px 14px;font-weight:700;cursor:pointer}.editor-wrap{background:#fff;border:1px solid var(--line);border-radius:20px;padding:10px}.editor-wrap canvas{width:100%;display:block;background:#fff;border-radius:12px;touch-action:none}.toolbar{display:flex;gap:7px;overflow:auto;padding:10px 0}.tool{min-width:72px;border:1px solid var(--line);background:#fff;border-radius:12px;padding:9px;font-size:11px;font-weight:700}.tool.on{border-color:#25272b;box-shadow:inset 0 0 0 1px #25272b}.colors{display:flex;gap:8px;overflow:auto;padding:4px 0 9px}.color{width:32px;height:32px;min-width:32px;border-radius:50%;border:2px solid #fff;box-shadow:0 1px 5px #0003}.color.on{outline:3px solid #25272b}.savebar{display:grid;grid-template-columns:1fr 1fr;gap:8px}.notice{font-size:11px;color:var(--muted);margin:10px 2px}.artgrid{display:grid;grid-template-columns:1fr 1fr;gap:11px}.art{background:#fff;border:1px solid var(--line);border-radius:16px;padding:8px}.art img{width:100%;border-radius:11px;display:block}.art small{display:block;color:var(--muted);padding:7px 2px 2px}.bottom{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:min(520px,100%);height:70px;background:#fffffff2;backdrop-filter:blur(12px);border-top:1px solid var(--line);display:flex;justify-content:space-around;z-index:10}.nav{border:0;background:none;color:#7a7e84;font-size:10px}.nav b{display:block;font-size:22px;margin-bottom:3px}.nav.active{color:#25272b;font-weight:800}
+</style>
+<style>
+.account-overlay{position:fixed;inset:0;background:#f7f7f7;z-index:20;display:none;overflow:auto}
+.account-card{max-width:440px;margin:30px auto;background:#fff;border-radius:24px;padding:24px;box-shadow:0 8px 30px #0002}
+.account-card h1{margin:0 0 6px}.account-card p{color:#68717c}
+.account-card input{width:100%;padding:14px;border:1px solid #ddd;border-radius:12px;margin:7px 0;font-size:16px}
+.account-btn{width:100%;padding:14px;border:0;border-radius:12px;font-weight:700;margin-top:8px;cursor:pointer}
+.account-primary{background:#20242a;color:#fff}.account-secondary{background:#eef0f3;color:#30353c}
+.account-switch{text-align:center;margin-top:14px;font-size:14px}.account-link{color:#3468d4;font-weight:700;cursor:pointer}
+.profile-pill{position:absolute;right:16px;top:16px;border:0;border-radius:20px;padding:9px 12px;background:#eef0f3;font-weight:700;cursor:pointer}
+.avatar{width:74px;height:74px;border-radius:50%;background:#e9edf2;display:flex;align-items:center;justify-content:center;font-size:34px;margin:8px auto 14px}
+</style>
+</head><body>
+<div id="accountOverlay" class="account-overlay">
+  <div class="account-card">
+    <button class="account-btn account-secondary" onclick="closeAccount()">← Back to Colour My Kin</button>
+    <div id="loginView">
+      <div class="avatar">👤</div>
+      <h1>Welcome back</h1>
+      <p>Sign in to keep your artwork, favourites and progress together.</p>
+      <input id="loginEmail" type="email" placeholder="Email address">
+      <input id="loginPassword" type="password" placeholder="Password">
+      <button class="account-btn account-primary" onclick="demoLogin()">Sign In</button>
+      <div class="account-switch">Don't have an account? <span class="account-link" onclick="showSignup()">Create one</span></div>
+    </div>
+    <div id="signupView" style="display:none">
+      <div class="avatar">✨</div>
+      <h1>Create your account</h1>
+      <p>Your artwork and progress can follow you across devices.</p>
+      <input id="signupName" placeholder="Your name">
+      <input id="signupEmail" type="email" placeholder="Email address">
+      <input id="signupPassword" type="password" placeholder="Create a password">
+      <button class="account-btn account-primary" onclick="demoSignup()">Create Account</button>
+      <div class="account-switch">Already have an account? <span class="account-link" onclick="showLogin()">Sign in</span></div>
+    </div>
+    <div id="profileView" style="display:none">
+      <div class="avatar">😊</div>
+      <h1 id="profileName">My Profile</h1>
+      <p id="profileEmail"></p>
+      <button class="account-btn account-secondary">⭐ My Artwork</button>
+      <button class="account-btn account-secondary">🏆 My Challenges</button>
+      <button class="account-btn account-primary" onclick="logout()">Sign Out</button>
+    </div>
+  </div>
+</div>
+<div class="app"><button id="profilePill" class="profile-pill" onclick="openAccount()">👤 Account</button><header><img class="brandmark" src="icon-192.png"><div><div class="brand">COLOUR MY KIN</div><div class="sub">Your Stories. Your Colours.</div></div></header><main>
+<section id="home" class="screen active"><div class="hero"><img src="logo-source.png"><h1>Turn memories into colouring pages.</h1><p>Bring your own pictures to life, or choose something ready to colour.</p></div><div class="actions" style="margin-top:12px"><button class="action" onclick="openUpload()"><span class="icon">📷</span><strong>Colour My Picture</strong><span>Use a photo from your gallery.</span></button><button class="action" onclick="go('library')"><span class="icon">🖼️</span><strong>Colouring Library</strong><span>Choose a ready-made page.</span></button></div><div class="section-title"><h2>My Artwork</h2><button class="link" onclick="go('artwork')">See all</button></div><div id="homeArt" class="artgrid"></div></section>
+<section id="library" class="screen"><div class="toprow"><button class="back" onclick="go('home')">←</button><h2>Colouring Library</h2></div><div class="chips"><button class="chip">All</button><button class="chip">Animals</button><button class="chip">Nature</button><button class="chip">Cars</button><button class="chip">Family</button><button class="chip">Fun</button></div><div id="libraryGrid" class="library" style="margin-top:12px"></div></section>
+<section id="artwork" class="screen"><div class="toprow"><button class="back" onclick="go('home')">←</button><h2>My Artwork</h2></div><div id="artGrid" class="artgrid"></div></section>
+<section id="upload" class="screen"><div class="toprow"><button class="back" onclick="go('home')">←</button><h2>Colour My Picture</h2></div><div class="upload"><div class="big">📷</div><h3>Choose a photo</h3><p class="notice">Your photo stays on this device in this prototype.</p><label class="primary">Choose from Gallery<input id="photo" type="file" accept="image/*"></label></div></section>
+<section id="editor" class="screen"><div class="toprow"><button class="back" onclick="go('home')">←</button><h2>Colouring Studio</h2></div><div class="editor-wrap"><canvas id="canvas" width="900" height="900"></canvas></div><div class="toolbar"><button class="tool on" data-tool="fill">🪣 Fill</button><button class="tool" data-tool="brush">🖌️ Brush</button><button class="tool" data-tool="eraser">🧽 Eraser</button><button class="tool" onclick="undo()">↩ Undo</button><button class="tool" onclick="redo()">↪ Redo</button></div><div id="colors" class="colors"></div><div class="savebar"><button class="secondary" onclick="resetPage()">Reset</button><button class="primary" onclick="saveArtwork()">Save Artwork</button></div><p class="notice">Tip: Fill works best on enclosed areas. Use Brush for details.</p></section>
+</main><nav class="bottom"><button class="nav active" data-nav="home" onclick="go('home')"><b>⌂</b>Home</button><button class="nav" data-nav="library" onclick="go('library')"><b>▦</b>Library</button><button class="nav" data-nav="artwork" onclick="go('artwork')"><b>▧</b>Artwork</button><button class="nav" data-nav="home" onclick="alert('Challenges are coming next in V2.')"><b>♕</b>Challenges</button></nav></div>
+<script>
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)], canvas=$('#canvas'),ctx=canvas.getContext('2d',{willReadFrequently:true});let tool='fill',colour='#e85d75',history=[],future=[],baseImage=null,libraryPages=[];
+const colours=['#e85d75','#f29b38','#f2c94c','#55a879','#4aa8c2','#6573c3','#9b68b5','#8b5a3c','#25272b','#ffffff'];
+colours.forEach((c,i)=>{const b=document.createElement('button');b.className='color'+(i===0?' on':'');b.style.background=c;b.onclick=()=>{colour=c;$$('.color').forEach(x=>x.classList.remove('on'));b.classList.add('on');setTool('brush')};$('#colors').appendChild(b)});
+function go(id){$$('.screen').forEach(s=>s.classList.toggle('active',s.id===id));$$('.nav').forEach(n=>n.classList.toggle('active',n.dataset.nav===id));if(id==='library')renderLibrary();if(id==='artwork'){renderArt();}if(id==='home')renderHome();window.scrollTo(0,0)}
+function openUpload(){go('upload')}
+$('#photo').onchange=e=>{const f=e.target.files[0];if(!f)return;const img=new Image();img.onload=()=>photoToLine(img);img.src=URL.createObjectURL(f)};
+function photoToLine(img){const off=document.createElement('canvas');off.width=900;off.height=900;const o=off.getContext('2d');o.fillStyle='#fff';o.fillRect(0,0,900,900);const s=Math.min(900/img.width,900/img.height),w=img.width*s,h=img.height*s;o.drawImage(img,(900-w)/2,(900-h)/2,w,h);const d=o.getImageData(0,0,900,900),g=new Float32Array(810000);for(let i=0,j=0;i<d.data.length;i+=4,j++)g[j]=.299*d.data[i]+.587*d.data[i+1]+.114*d.data[i+2];const out=ctx.createImageData(900,900);for(let y=1;y<899;y++)for(let x=1;x<899;x++){const i=y*900+x;const e=Math.abs(g[i+1]-g[i-1])+Math.abs(g[i+900]-g[i-900])+Math.abs(g[i+901]-g[i-899]);const v=e>48?18:255,k=i*4;out.data[k]=out.data[k+1]=out.data[k+2]=v;out.data[k+3]=255}ctx.putImageData(out,0,0);baseImage=ctx.getImageData(0,0,900,900);history=[];future=[];go('editor')}
+function setTool(t){tool=t;$$('.tool[data-tool]').forEach(b=>b.classList.toggle('on',b.dataset.tool===t))}$$('.tool[data-tool]').forEach(b=>b.onclick=()=>setTool(b.dataset.tool));
+function snap(){history.push(ctx.getImageData(0,0,900,900));if(history.length>20)history.shift();future=[]}function undo(){if(!history.length)return;future.push(ctx.getImageData(0,0,900,900));ctx.putImageData(history.pop(),0,0)}function redo(){if(!future.length)return;history.push(ctx.getImageData(0,0,900,900));ctx.putImageData(future.pop(),0,0)}
+function point(e){const r=canvas.getBoundingClientRect();return{x:Math.max(0,Math.min(899,(e.clientX-r.left)*900/r.width)),y:Math.max(0,Math.min(899,(e.clientY-r.top)*900/r.height))}}
+function fill(x,y){const d=ctx.getImageData(0,0,900,900),p=d.data,sx=Math.floor(x),sy=Math.floor(y),start=(sy*900+sx)*4,target=[p[start],p[start+1],p[start+2]],n=parseInt(colour.slice(1),16),rep=[n>>16,(n>>8)&255,n&255],stack=[[sx,sy]],seen=new Uint8Array(810000);while(stack.length){const [xx,yy]=stack.pop();if(xx<0||yy<0||xx>=900||yy>=900)continue;const q=yy*900+xx,k=q*4;if(seen[q]||Math.abs(p[k]-target[0])+Math.abs(p[k+1]-target[1])+Math.abs(p[k+2]-target[2])>66)continue;seen[q]=1;p[k]=rep[0];p[k+1]=rep[1];p[k+2]=rep[2];p[k+3]=255;stack.push([xx+1,yy],[xx-1,yy],[xx,yy+1],[xx,yy-1])}ctx.putImageData(d,0,0)}
+let drawing=false;canvas.onpointerdown=e=>{snap();const p=point(e);if(tool==='fill'){fill(p.x,p.y)}else{drawing=true;ctx.beginPath();ctx.moveTo(p.x,p.y)}};canvas.onpointermove=e=>{if(!drawing)return;const p=point(e);ctx.strokeStyle=tool==='eraser'?'#fff':colour;ctx.lineWidth=tool==='eraser'?34:26;ctx.lineCap='round';ctx.lineJoin='round';ctx.lineTo(p.x,p.y);ctx.stroke()};canvas.onpointerup=()=>drawing=false;canvas.onpointercancel=()=>drawing=false;
+function resetPage(){if(baseImage){snap();ctx.putImageData(baseImage,0,0)}}function saveArtwork(){const data=canvas.toDataURL('image/png');const a=document.createElement('a');a.href=data;a.download='colour-my-kin-artwork.png';a.click();const arts=JSON.parse(localStorage.getItem('cmk_art')||'[]');arts.unshift({data,date:new Date().toLocaleDateString()});localStorage.setItem('cmk_art',JSON.stringify(arts.slice(0,20)));renderHome()}
+function artCard(a){return `<div class="art"><img src="${a.data}"><small>Saved ${a.date}</small></div>`}function renderArt(){const arts=JSON.parse(localStorage.getItem('cmk_art')||'[]');$('#artGrid').innerHTML=arts.length?arts.map(artCard).join(''):'<div class="empty" style="grid-column:1/-1">Your finished artwork will appear here.<br><br>Start by colouring a picture.</div>'}function renderHome(){const arts=JSON.parse(localStorage.getItem('cmk_art')||'[]');$('#homeArt').innerHTML=arts.length?arts.slice(0,2).map(artCard).join(''):'<div class="empty" style="grid-column:1/-1">No artwork yet.</div>'}
+function makePage(name,type){const x=document.createElement('canvas');x.width=x.height=600;const c=x.getContext('2d');c.fillStyle='#fff';c.fillRect(0,0,600,600);c.strokeStyle='#111';c.lineWidth=9;c.lineCap='round';c.lineJoin='round';if(type==='flower'){for(let a=0;a<6;a++){c.beginPath();c.ellipse(300+95*Math.cos(a*Math.PI/3),210+95*Math.sin(a*Math.PI/3),62,90,a*Math.PI/3,0,7);c.stroke()}c.beginPath();c.arc(300,210,55,0,7);c.stroke();c.beginPath();c.moveTo(300,265);c.lineTo(300,500);c.stroke()}if(type==='car'){c.beginPath();c.roundRect(105,300,390,135,28);c.stroke();c.beginPath();c.moveTo(190,300);c.lineTo(250,225);c.lineTo(390,225);c.lineTo(455,300);c.stroke();c.beginPath();c.arc(190,445,40,0,7);c.arc(410,445,40,0,7);c.stroke()}if(type==='cat'){c.beginPath();c.arc(300,325,150,0,7);c.stroke();c.beginPath();c.moveTo(195,220);c.lineTo(215,115);c.lineTo(280,195);c.moveTo(405,220);c.lineTo(385,115);c.lineTo(320,195);c.stroke();c.beginPath();c.arc(250,305,12,0,7);c.arc(350,305,12,0,7);c.stroke();c.beginPath();c.arc(300,365,35,0,Math.PI);c.stroke()}if(type==='dino'){c.beginPath();c.arc(330,300,145,0,7);c.stroke();c.beginPath();c.moveTo(205,400);c.quadraticCurveTo(90,480,165,535);c.quadraticCurveTo(245,555,285,420);c.stroke()}return {name,data:x.toDataURL()}}
+function renderLibrary(){const pages=[makePage('Cute Cat','cat'),makePage('Flowers','flower'),makePage('Family Car','car'),makePage('Dinosaur','dino')];$('#libraryGrid').innerHTML=pages.map((p,i)=>`<div class="page" onclick="openReady(${i})"><canvas id="p${i}" width="300" height="300"></canvas><div>${p.name}</div></div>`).join('');pages.forEach((p,i)=>{const z=$('#p'+i).getContext('2d');const im=new Image();im.onload=()=>z.drawImage(im,0,0,300,300);im.src=p.data});window._pages=pages}
+function openReady(i){const im=new Image();im.onload=()=>{ctx.drawImage(im,0,0,900,900);baseImage=ctx.getImageData(0,0,900,900);history=[];future=[];go('editor')};im.src=window._pages[i].data}
+renderHome();renderLibrary();if('serviceWorker' in navigator)navigator.serviceWorker.register('sw.js');
+</script>
+<script>
+function openAccount(){
+  document.getElementById('accountOverlay').style.display='block';
+  const user=JSON.parse(localStorage.getItem('cmk_user')||'null');
+  if(user){showProfile()}else{showLogin()}
+}
+function closeAccount(){document.getElementById('accountOverlay').style.display='none'}
+function showLogin(){loginView.style.display='block';signupView.style.display='none';profileView.style.display='none'}
+function showSignup(){loginView.style.display='none';signupView.style.display='block';profileView.style.display='none'}
+function showProfile(){
+  const u=JSON.parse(localStorage.getItem('cmk_user'));
+  loginView.style.display='none';signupView.style.display='none';profileView.style.display='block';
+  profileName.textContent=u.name||'My Profile';profileEmail.textContent=u.email||'';
+}
+function demoSignup(){
+  const name=signupName.value.trim(),email=signupEmail.value.trim(),password=signupPassword.value;
+  if(!name||!email||password.length<6){alert('Please enter your name, a valid email and a password of at least 6 characters.');return}
+  localStorage.setItem('cmk_user',JSON.stringify({name,email}));
+  showProfile();
+}
+function demoLogin(){
+  const email=loginEmail.value.trim();
+  if(!email||!loginPassword.value){alert('Please enter your email and password.');return}
+  const old=JSON.parse(localStorage.getItem('cmk_user')||'null');
+  localStorage.setItem('cmk_user',JSON.stringify({name:old?.name||email.split('@')[0],email}));
+  showProfile();
+}
+function logout(){localStorage.removeItem('cmk_user');showLogin()}
+</script>
+</body></html>
